@@ -1,0 +1,50 @@
+/**
+ * Defines a data model for a blind vehicle auction
+ */
+namespace org.bjitgroup.com
+
+enum BookStatus{
+ o Available
+ o NotAvailable
+}
+
+asset Book identified by bookId {
+  o String bookId
+  o String bookName
+  o String author
+  o String Ownership
+  o DateTime returnDate optional
+  o BookStatus status
+  -->Library library
+}
+
+asset Amount identified by amountId {
+  o String amountId
+  o Long amount
+}
+
+
+participant Student identified by studentId {
+  o String studentId
+  o String studentName
+  o String address
+}
+
+asset Library identified by libraryId {
+ o String libraryId
+ o String libraryName
+}
+
+transaction issueBook {
+  o DateTime returnDate
+  -->Book book
+  -->Student student
+  -->Library library
+}
+
+transaction returnBook {
+  -->Book book
+  --> Amount amount
+  -->Student student
+  -->Library library
+}
