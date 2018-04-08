@@ -9,7 +9,8 @@ async function issueBook(exchangeBook){
     var   aa=exchangeBook.book.Ownership;
      if(aa[0]=='s')
      {
-       alert("This book is not availabel");
+       ;
+
      }
   else
   {
@@ -39,7 +40,6 @@ async function returnBook(exchangeBook){
   exchangeBook.book.Ownership=exchangeBook.book.bookId;
   exchangeBook.book.status="Available";
   if(exchangeBook.book.returnDate<exchangeBook.timestamp){
-    alert("Deadline over and  give fine");
     exchangeBook.amount.amount=exchangeBook.amount.amount+10;
   }
   
